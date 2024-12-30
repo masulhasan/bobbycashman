@@ -31,6 +31,36 @@ body {
   font-family: "Metric Light";
 }
 
+
+/* Hover Effect Start */
+
+.hover-circle {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.3s, height 0.3s;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  mix-blend-mode: difference; /* This creates the negative effect */
+  background: #fff;          /* White circle for inverse effect */
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect End */
+
 /* Header */
 
 .header {

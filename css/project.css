@@ -26,6 +26,34 @@
   font-style: normal;
 }
 
+.hover-circle {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  transition: width 0.3s, height 0.3s;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  mix-blend-mode: difference;
+  background: #fff;
+}
+
+.portfolio-item, 
+.video-container,
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-item video,
+.video-container video,
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 body {
   min-height: 100vh;
   display: flex;
