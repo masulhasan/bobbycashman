@@ -7,20 +7,23 @@
 }
 
 @font-face {
-    font-family: 'Archia Bold';
-    src: url('../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.eot');
-    src: url('../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff') format('woff'),
-         url('../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Archia Bold";
+  src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.eot");
+  src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff")
+      format("woff"),
+    url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.ttf")
+      format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Metric Light';
-    src: url('../Fonts/Metric_font/Metric-Light.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Metric Light";
+  src: url("../Fonts/Metric_font/Metric-Light.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
@@ -30,7 +33,6 @@ body {
   padding: 0 20px;
   font-family: "Metric Light";
 }
-
 
 /* Hover Effect Start */
 
@@ -44,7 +46,7 @@ body {
   transform: translate(-50%, -50%);
   z-index: 1000;
   mix-blend-mode: difference; /* This creates the negative effect */
-  background: #fff;          /* White circle for inverse effect */
+  background: #fff; /* White circle for inverse effect */
 }
 
 .portfolio-item {
@@ -68,27 +70,38 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 7%;
-  margin-right: 7%;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 2.8%;
   padding-bottom: 2.8%;
   font-size: 20px;
   font-family: "Metric Light";
+  max-width: 1600px;
+  width: 86%;
+}
+
+/* Update the media query breakpoint and maintain consistent spacing */
+@media (max-width: 1280px) {
+  .header {
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2.8%;
+    padding-bottom: 2.8%;
+    font-size: 18px;
+  }
 }
 
 /* Header Tablet */
-@media (max-width: 1600px) {
+@media (max-width: 1280px) {
   .header {
     padding: 20px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 0.1%;
-    margin-right: 0.1%;
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 2%;
     padding-bottom: 2%;
     font-size: 15px;
-    font-family: "Metric Light";
   }
 }
 
@@ -115,7 +128,7 @@ body {
   font-family: "Archia Bold", sans-serif;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1280px) {
   .logo {
     font-size: 15px;
     color: #333;
@@ -137,7 +150,7 @@ body {
   font-size: 1.5rem;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1280px) {
   .nav {
     display: flex;
     gap: 20px;
@@ -159,7 +172,6 @@ body {
   text-decoration: none;
   color: #333;
   font-family: "Metric Light";
-  
 }
 
 .portfolio-container {
@@ -167,10 +179,10 @@ body {
   flex-direction: column;
   gap: 20px;
   max-width: 1600px;
-  margin: 0 auto;
-  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 86%;
   padding-bottom: 100px;
-  /* Added spacing before footer */
 }
 
 .portfolio-grid {
@@ -246,7 +258,7 @@ body {
   font-family: "Metric Light";
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1280px) {
   .copyright {
     margin-left: 0.1%;
     font-size: 15px;
@@ -269,7 +281,7 @@ body {
   font-family: "Metric Light";
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1280px) {
   .social {
     margin-right: 0.1%;
     font-size: 15px;
@@ -292,7 +304,7 @@ body {
 }
 
 /* Tablet adjustments */
-@media (max-width: 1600px) {
+@media (max-width: 1280px) {
   body {
     padding: 0 10px;
   }
@@ -306,6 +318,13 @@ body {
 
   .header {
     padding: 15px 0;
+  }
+
+  .header,
+  .portfolio-container {
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -323,6 +342,13 @@ body {
     margin-right: -10px;
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .header,
+  .portfolio-container {
+    width: 100%;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
   }
 }
 
@@ -495,12 +521,9 @@ body {
 }
 
 /* Tablet adjustments */
-@media (max-width: 1600px) {
+@media (max-width: 1280px) {
   .heading-p {
     padding: 10px 0;
-    /* Tablet padding */
-    font-size: 1rem;
-    /* Reduced from 2rem */
     font-size: 1.2rem;
     font-weight: 250;
     font-family: "Metric Light";
@@ -530,12 +553,10 @@ body {
 }
 
 /* Tablet adjustments */
-@media (max-width: 1600px) {
+@media (max-width: 1280px) {
   .heading-p1 {
     padding: 10px 0;
-    /* Tablet padding */
     font-size: 1.2rem;
-    /* Reduced from 2rem */
     font-weight: 250;
     font-family: "Metric Light";
   }
@@ -552,4 +573,3 @@ body {
     font-family: "Metric Light";
   }
 }
-
