@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
-    sans-serif, "Archia Bold", "Metric Light";
+    sans-serif, "Archia Bold", "Archia Regular","Archia Light," ,"Metric Light", "Metric Regular";
 }
 
 @font-face {
@@ -17,7 +17,36 @@
       format("truetype");
   font-weight: bold;
   font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: "Archia Regular";
+  src: url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.eot");
+  src: url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.woff")
+      format("woff"),
+    url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archia Light";
+  src: url("../Fonts/Archia_Font_Web/02.Archia-Light-webfont/archia-light-webfont.eot");
+  src: url("../Fonts/Archia_Font_Web/02.Archia-Light-webfont/archia-light-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../Fonts/Archia_Font_Web/02.Archia-Light-webfont/archia-light-webfont.woff")
+      format("woff"),
+    url("../Fonts/Archia_Font_Web/02.Archia-Light-webfont/archia-light-webfont.ttf")
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 @font-face {
   font-family: "Metric Light";
@@ -25,6 +54,100 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Metric Regular";
+  src: url("../Fonts/Metric_font/Metric-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Medium";
+  src: url("../Fonts/Metric_font/Metric-Medium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Metric Light";
+
+  position: relative;
+  background-image: url("../img/FooterBG/79521629693dde3f1d06f4e891475322.png");
+  background-size: 100%;
+  background-position: center 91.65%;
+  background-repeat: no-repeat;
+  font-family: "Archia Bold", "Archia Regular", "Metric Light" , "Archia Light";
+}
+
+@media (max-width: 780px) {
+  body {
+    background-position: center 1px, center 91.65%;
+  }
+}
+
+.headerbg{
+  background-image: url("../img/HeaderBG/header-bg.png");
+  background-size: 100% 100%;
+  background-color: #ffffff;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; /* Start 50px down */
+  left: 0;
+  right: 0;
+  bottom: 0; /* Extend to the bottom */
+  background-color: #f1f2f8; /* Example: light white with some transparency */
+  z-index: -1; /* Ensure it stays behind other content */
+}
+
+
+@media (max-width: 780px){
+  body::before{
+    top: 0%;
+  }
+}
+
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../img/CenterBodyBg/midbg.png");
+  background-size: 100%;
+  background-position: center 4%;
+  background-repeat: no-repeat;
+  z-index: -1; /* Ensure it stays behind other content */
+  opacity: 5%;
+}
+
+@media(max-width:780px){
+  body::after {
+    content: "";
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../img/CenterBodyBg/midbg.png");
+    background-size: 100%;
+    background-position: center -5%;
+    background-repeat: no-repeat;
+    z-index: -1; /* Ensure it stays behind other content */
+    opacity: 20%;
+  }
+}
+
+
+
+
+/* Hover Effect Start */
 
 .hover-circle {
   position: fixed;
@@ -35,8 +158,14 @@
   transition: width 0.3s, height 0.3s;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  mix-blend-mode: difference;
-  background: #fff;
+  mix-blend-mode: difference; /* This creates the negative effect */
+  background: #fff; /* White circle for inverse effect */
+}
+
+@media (max-width: 780px) {
+  .hover-circle {
+    display: none;
+  }
 }
 
 .portfolio-item {
@@ -44,19 +173,14 @@
   overflow: hidden;
 }
 
-.portfolio-item video {
+.portfolio-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 0 20px;
-  font-family: "Metric Light";
-}
+/* Hover Effect End */
 
 /* Header */
 
@@ -67,26 +191,42 @@ body {
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 2.8%;
-  padding-bottom: 2.8%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   font-size: 20px;
   font-family: "Metric Light";
   max-width: 1600px;
   width: 86%;
+}
+/* Update the media query breakpoint and maintain consistent spacing */
+@media (max-width: 1280px) {
+  .header {
+    width: 86%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2.8%;
+    padding-bottom: 2.8%;
+    font-size: 18px;
+  }
 }
 
 /* Header Tablet */
 @media (max-width: 1280px) {
   .header {
     padding: 20px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 86%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 2%;
     padding-bottom: 2%;
     font-size: 15px;
+  }
+
+  .headerbg{
+    background-image: url("../img/HeaderBG/header-bg.png");
+    background-size: 100% 100%;
+    background-color: #ffffff00;
+
   }
 }
 
@@ -107,40 +247,49 @@ body {
 }
 
 .logo {
-  font-size: 1.2rem;
-  color: #333;
+  font-size: 20px;
+  color: #3C096C;
   text-decoration: none;
   font-family: "Archia Bold", sans-serif;
+  font-weight: 700;
 }
 
 @media (max-width: 1280px) {
   .logo {
     font-size: 15px;
-    color: #333;
+   
     text-decoration: none;
   }
 }
 @media (max-width: 767px) {
   .logo {
     font-size: 15px;
-    color: #333;
+    
     text-decoration: none;
   }
+}
+
+.logo:hover{
+  color: #000000;
 }
 
 .nav {
   display: flex;
-  gap: 20px;
-  font-family: "Metric Light";
-  font-size: 1.5rem;
+  gap: 40px;
+  font-family: "Archia Regular";
+  font-size: 20px;
+  color: #1F2937;
+  font-weight: 400;
 }
 
 @media (max-width: 1280px) {
   .nav {
     display: flex;
     gap: 20px;
-    font-family: "Metric Light";
+    font-family: "Archia Regular";
     font-size: 15px;
+    color: #1F2937;
+    font-weight: 400;
   }
 }
 
@@ -148,15 +297,24 @@ body {
   .nav {
     display: flex;
     gap: 20px;
-    font-family: "Metric Light";
+    font-family: "Archia Regular";
     font-size: 15px;
+    color: #1F2937;
+    font-weight: 400;
   }
 }
 
 .nav a {
   text-decoration: none;
   color: #333;
-  font-family: "Metric Light";
+  font-family: "Archia Regular";
+  color: #1F2937;
+  font-weight: 400;
+}
+
+.nav a:hover{
+  color: #3C096C;
+  font-weight: 400;
 }
 
 .portfolio-container {
@@ -167,9 +325,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 86%;
-  padding-bottom: 100px;
-
-  /* Added spacing before footer */
+  padding-bottom: 40px;
 }
 
 .portfolio-grid {
@@ -188,18 +344,17 @@ body {
 .portfolio-additional {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 40px;
   width: 100%;
   max-width: 1600px;
-  margin: 0 auto;
-  padding-bottom: 5%;
+  margin-bottom: 15px;
 }
 
 .portfolio-item {
   position: relative;
   overflow: hidden;
   background: #f5f5f5;
-  border-radius: 4px;
+  border-radius: 8px;
   width: 100%;
 }
 
@@ -208,9 +363,8 @@ body {
 }
 
 .portfolio-item.standard {
-  aspect-ratio: 1/1;
-  max-width: 780px;
-  max-height: 780px;
+  max-width: 1080px;
+  max-height: 720px;
 }
 
 .portfolio-item video {
@@ -235,53 +389,91 @@ body {
   background: black;
   color: white;
   margin-top: auto;
-  margin-left: -20px;
-  margin-right: -20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 8.2%;
+  padding-right: 8.2%;
 }
 
-.copyright {
-  margin-left: 7%;
-}
-
-@media (max-width: 1600px) {
-  .copyright {
-    margin-left: 0.1%;
-    font-size: 15px;
+@media (max-width: 1280px) {
+  .footer {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    color: white;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 8.7%;
+    padding-right: 8.7%;
   }
 }
 
-@media (max-width: 767px) {
+.copyright {
+  font-size: 14px;
+  font-family: "Archia Light";
+  font-weight: 400;
+}
+
+@media (max-width: 1280px) {
   .copyright {
-    margin-left: 0.1%;
-    font-size: 12px;
+    margin-right: 0.1%;
+    font-size: 15px;
+    font-family: "Archia Regular";
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 780px) {
+  .copyright {
+    margin-right: 0.1%;
+    font-size: 9px;
+    font-family: "Archia Light";
+    font-weight: 400;
   }
 }
 
 .social {
   display: flex;
-  gap: 15px;
-  margin-right: 7%;
+  gap: 20px;
+  font-weight: 400;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1280px) {
   .social {
-    margin-right: 0.1%;
-    font-size: 15px;
+    margin-left: 0.1%;
+    font-size: 12px;
+    font-family: "Archia Light";
+    font-weight: 400;
+    gap: 10px;
   }
 }
 
 @media (max-width: 767px) {
   .social {
-    margin-right: 0.1%;
-    font-size: 12px;
+    margin-left: 0.1%;
+    font-size: 10px;
+    font-family: "Archia Light";
+    font-weight: 400;
+    gap: 10px;
   }
 }
 
 .social a {
   color: white;
   text-decoration: none;
+  font-weight: 400;
+  font-family: "Archia Light";
+  font-size: 14px;
+}
+
+@media (max-width: 780px) {
+  .social a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: "Archia Light";
+    font-size: 10px;
+  }
 }
 
 /* Tablet adjustments */
@@ -292,9 +484,13 @@ body {
 
   .portfolio-container,
   .portfolio-grid,
-  .portfolio-section,
-  .portfolio-additional {
+  .portfolio-section {
     gap: 10px;
+  }
+
+  .portfolio-additional {
+    row-gap: 10px;
+    column-gap: 20px;
   }
 
   .header {
@@ -307,23 +503,6 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-
-  .heading-p {
-    padding: 30px 0;
-    font-size: 1.2rem;
-    line-height: 1.3;
-    font-weight: 250;
-  }
-
-  .copyright {
-    margin-left: 0.1%;
-    font-size: 15px;
-  }
-
-  .social {
-    margin-right: 0.1%;
-    font-size: 15px;
-  }
 }
 
 /* Mobile adjustments */
@@ -332,7 +511,7 @@ body {
   .portfolio-grid,
   .portfolio-section,
   .portfolio-additional {
-    gap: 8px;
+    gap: 10px;
   }
 
   .footer {
@@ -340,6 +519,33 @@ body {
     margin-right: -10px;
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .header{    
+    width: 100%;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
+    padding-bottom: 10px;
+  }
+
+  .portfolio-container {
+    width: 100%;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
+  }
+
+  .portfolio-container {
+    width: 100%;
+    margin-left: 0.1%;
+    margin-right: 0.1%;
+    padding-bottom: 10px;
+
+  }
+
+  .portfolio-additional {
+    margin-bottom: 1px;
   }
 }
 
@@ -350,17 +556,13 @@ body {
 }
 
 .section-title {
-  font-size: 1.7rem;
-  font-weight: 250;
-  font-family: "Metric Light";
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .profile-content p {
   margin-bottom: 1.5rem;
   line-height: 1.6;
-  font-size: 1.2rem;
-  font-weight: 250;
-  font-family: "Metric Light";
 }
 
 .get-in-touch {
@@ -368,24 +570,7 @@ body {
   text-decoration: none;
   color: #333;
   margin-top: 1rem;
-  font-size: 1.2rem;
   font-family: "Metric Light";
-}
-.mail2bc {
-  display: inline-block;
-  text-decoration: none;
-  color: #333;
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  font-weight: 250;
-  font-family: "Metric Light";
-}
-
-@media (max-width: 767px) {
-  .mail2bc {
-    font-size: 1rem;
-    font-family: "Metric Light";
-  }
 }
 
 .services-list {
@@ -396,19 +581,19 @@ body {
 
 .services-list li {
   margin-bottom: 0.8rem;
-  font-size: 1.2rem;
-  font-weight: 250;
+  font-size: 1.1rem;
   font-family: "Metric Light";
 }
 
 /* Desktop Layout (above 768px) */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .about-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     /* Creates two equal columns */
     gap: 5px;
     /* Added 5px gap */
+    font-family: "Metric Light";
   }
 
   .section-title {
@@ -420,9 +605,10 @@ body {
   .profile-content,
   .services-list {
     grid-column: 2;
-
+    /* Places content in the second column */
     max-width: 100%;
     padding-left: 5px;
+    /* Added 5px padding to content */
     font-family: "Metric Light";
   }
 }
@@ -437,14 +623,11 @@ body {
 
   .profile-content p {
     margin-bottom: 1rem;
-    font-size: 1rem;
-    font-weight: 250;
     font-family: "Metric Light";
   }
 
   .services-list li {
     font-size: 1rem;
-    font-weight: 250;
     font-family: "Metric Light";
   }
 }
@@ -493,18 +676,36 @@ body {
 
 /* Video section styles */
 .video-section {
-  margin: 60px 0;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .video-container {
   grid-column: 1 / span 2;
-  /* Changed: spans both columns */
   width: 100%;
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
-  margin-top: 40px;
-  /* Added: creates space below the title */
+  border-radius: 0px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+@media (min-width: 1280px) {
+  .video-container {
+    grid-column: 1 / span 2;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+}
+
+.video-section {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .video-container video {
@@ -522,36 +723,385 @@ body {
 }
 
 .heading-p {
-  padding: 40px 0;
+  padding: 10px 0;
   /* Desktop padding */
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   /* Reduced from 2.5rem */
   line-height: 1.3;
   max-width: 850px;
+  padding-top: 5%;
+  font-size: 1.7rem;
   font-weight: 250;
   font-family: "Metric Light";
 }
 
 /* Tablet adjustments */
-@media (max-width: 1600px) {
+@media (max-width: 1280px) {
   .heading-p {
-    padding: 30px 0;
-    /* Tablet padding */
+    padding: 10px 0;
     font-size: 1.2rem;
-    /* Reduced from 2rem */
-    line-height: 1.3;
     font-weight: 250;
+    font-family: "Metric Light";
   }
 }
 
 /* Mobile adjustments */
 @media (max-width: 767px) {
   .heading-p {
-    padding: 20px 0;
+    padding: 5px 0;
+    /* Mobile padding */
+    font-size: 20px;
+    /* Reduced from 1.5rem */
+    font-size: 1.2rem;
+    font-weight: 250;
+    font-family: "Metric Light";
+  }
+}
+.heading-p1 {
+  padding: 10px 0;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  max-width: 850px;
+  padding-top: 0.5%;
+  font-weight: 250;
+  font-family: "Metric Light";
+}
+
+/* Tablet adjustments */
+@media (max-width: 1280px) {
+  .heading-p1 {
+    padding: 10px 0;
+    font-size: 1.2rem;
+    font-weight: 250;
+    font-family: "Metric Light";
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .heading-p1 {
+    padding: 5px 0;
     /* Mobile padding */
     font-size: 1.2rem;
     /* Reduced from 1.5rem */
-    line-height: 1.3;
     font-weight: 250;
+    font-family: "Metric Light";
   }
+}
+
+.grey-box {
+  width: 100%;
+  height: 100%;
+  background-color: #1f2937;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+}
+
+/* Ensure container maintains proper positioning */
+.video-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.grey-box {
+  width: 100%;
+  height: 100%;
+  background-color: #1f2937;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.portfolio-item a {
+  text-decoration: none;
+}
+
+.portfolio-tittle {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 15px 15px;
+  background-color: #FFFFFF99;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+  font-family: "Archia Bold";
+  font-weight: 700;
+  color: #000000;
+}
+
+.portfolio-item:hover .portfolio-tittle {
+  opacity: 1; /* Show on hover */
+}
+
+
+
+/* About Me Content */
+
+.container {
+  max-width: 1600px;
+ 
+}
+h2 {
+  color: #333;
+  font-family: "Archia Bold";
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+h3 {
+  color: #333;
+  font-family: "Archia Bold";
+  font-weight: 700;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    color: #333;
+    font-family: "Archia Bold";
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  h3 {
+    color: #333;
+    font-family: "Archia Bold";
+    font-weight: 700;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 16px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+.about {
+  width: 45%;
+}
+.services-contact {
+  width: 48.5%;
+}
+
+ul {
+list-style: none;
+margin-top: 2.5%;
+margin-bottom: 15px;
+}
+
+ul li:before {
+  content: "•";
+  font-size: 3rem;
+  margin-right: 8px;
+  margin-bottom: -1.5px;
+  vertical-align: bottom;
+  display: inline-block;
+  color:  #323332;
+}
+
+@media (max-width: 768px) {
+  ul li:before {
+    content: "•";
+    font-size: 1.5rem;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    vertical-align: bottom;
+    display: inline-block;
+  }
+}
+
+@media(max-width:780px){
+  ul{
+    margin: 0% 0%;
+    
+  }
+}
+
+ul li {
+  font-family: "Metric Light";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+@media (max-width: 768px) {
+  ul li {
+    margin: 1% 0%;
+    font-family: "Metric Light";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
+
+.contact p {
+  font-family: "Metric Light";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+@media (max-width: 768px) {
+  .contact p {
+    margin: 5px 0;
+    font-family: "Metric Light";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+  }
+}
+
+.paragraph{
+  margin: 3% 0%;
+  font-family: "Metric Light";
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .paragraph{
+    margin: 3% 0%;
+    font-family: "Metric Light";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;    
+}
+
+.contactab{
+  color: #333;
+  font-family: "Archia Bold";
+  font-weight: 700;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.contactnm{
+  font-family: "Metric Light";
+  font-weight: 400;
+  font-size: 20px;
+}
+.contactnm2{
+  font-family: "Metric Light";
+  font-weight: 400;
+  font-size: 20px;
+  
+}
+
+@media (max-width: 768px) {
+  .container {
+      display: flex;
+      flex-direction: column;
+  }
+  .content {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+  }
+  .about, .services-contact {
+      width: 100%;
+      text-align: left;
+  }
+  .mh{
+    padding-top: 5px;
+  }
+}
+}
+
+
+
+/* Scroll Tricker */
+
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 0px;
+}
+
+@media (max-width: 768px) {
+  .scroll-container {
+    padding-bottom: 0px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    position: relative;
+  }
+}
+
+
+.scrolling-text {
+  display: flex;
+  white-space: nowrap;
+  font-family: "Archia Bold";
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .scrolling-text {
+    font-family: "Archia Bold";
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+}
+
+
+.scroll-left {
+  animation: scrollLeft 30s linear infinite;
+}
+
+.scroll-right {
+  animation: scrollRight 30s linear infinite;
+}
+
+.text-content {
+  padding-right: 5px; /* Ensure no gap between repetitions */
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.ticker-row {
+  padding: 12px 0;
+}
+
+.ticker-row.white-bg {
+  background-color: transparent;
+  color: #3C096C;
+}
+
+.ticker-row.blue-bg {
+  background-color: #3C096C;
+  color: white;
 }
