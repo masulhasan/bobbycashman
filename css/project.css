@@ -337,15 +337,22 @@
   }
   
   .footer {
-    padding: 60px 0;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    background: black;
-    color: white;
-    margin-top: auto;
-    padding-left: 8.2%;
-    padding-right: 8.2%;
+    display: none; /* Hide by default on desktop and tablet */
+  }
+  
+  /* Only show on mobile */
+  @media (max-width: 767px) {
+    .footer {
+      padding: 60px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: black;
+      color: white;
+      margin-top: auto;
+      padding-left: 8%;
+      padding-right: 8%;
+    }
   }
   
   @media (max-width: 1280px) {
