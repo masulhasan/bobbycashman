@@ -359,7 +359,7 @@ body::after {
 
 .footer {
   padding: 60px 0;
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   background: black;
@@ -372,7 +372,7 @@ body::after {
 @media (max-width: 1280px) {
   .footer {
     padding: 60px 0;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     background: black;
@@ -824,4 +824,52 @@ body::after {
   .portfolio-tittle {
     display: none;
   }
+}
+
+
+.footer-wrapper {
+  background-color: black;
+  width: 100%;
+  margin: 0;
+  padding: 60px 0;
+}
+
+@media (max-width: 780px) {
+  .footer-wrapper {
+    display: none;
+  }
+}
+
+.footer-ab {
+  width: 86%;
+  max-width: 1600px;
+  margin: 0 auto;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  font-family: "Archia Light";
+  font-size: 14px;
+}
+
+.social-links a:hover {
+  opacity: 0.8;
+}
+
+.copyright-ab {
+  font-family: "Archia Light";
+  font-size: 14px;
 }
