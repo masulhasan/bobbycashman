@@ -400,21 +400,6 @@ body::after {
   }
 }
 
-@media (max-width: 1280px) {
-  .footer {
-    padding: 60px 0;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    background: black;
-    color: white;
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 8.7%;
-    padding-right: 8.7%;
-  }
-}
-
 .copyright {
   font-size: 14px;
   font-family: "Archia Light";
