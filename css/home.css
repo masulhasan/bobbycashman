@@ -338,22 +338,28 @@ body::after {
 }
 
 .footer {
-  padding: 60px 0;
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  background: black;
-  color: white;
-  margin-top: auto;
-  padding-left: 8%;
-  padding-right: 8%;
+  display: none; /* Hide by default on desktop and tablet */
+}
 
+/* Only show on mobile */
+@media (max-width: 767px) {
+  .footer {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    color: white;
+    margin-top: auto;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
 }
 
 @media (max-width: 1280px) {
   .footer {
     padding: 60px 0;
-    display: none;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     background: black;
@@ -453,18 +459,7 @@ body::after {
   }
 }
 
-@media (max-width: 800px){
- 
-  .footer {
-    margin-left: -10px;
-    margin-right: -10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
 
-}
 
 /* Mobile adjustments */
 @media (max-width: 767px) {
