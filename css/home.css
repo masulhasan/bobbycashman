@@ -453,6 +453,19 @@ body::after {
   }
 }
 
+@media (max-width: 800px){
+ 
+  .footer {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+}
+
 /* Mobile adjustments */
 @media (max-width: 767px) {
   .portfolio-container,
