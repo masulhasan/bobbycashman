@@ -868,6 +868,7 @@ body::after {
   font-family: "Archia Light";
   font-size: 14px;
 }
+<<<<<<< HEAD
 
 .scroll-container {
   width: 100%;
@@ -972,3 +973,5 @@ body::after {
     top: 1.5px;
   }
 }
+=======
+>>>>>>> 3e21d8be454016561f0cd81f2560bc3b888bb409
