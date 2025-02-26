@@ -882,6 +882,7 @@ body::after {
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
     position: relative;
+    margin-top: auto;
   }
 }
 
